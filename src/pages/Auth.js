@@ -27,7 +27,7 @@ export default function Auth(props) {
 		console.log(data);
 		if (!tieneAcceso) {
 			await axios
-				.post('http://localhost:5000/api/usuarios/alta', {
+				.post(process.env.REACT_APP_BACKEND_URL + 'usuarios/alta', {
 					// endpoint de la API de nuestro servidor
 					nombre: data.nombre, // dato extraído del formulario
 					email: data.email, // dato extraído del formulario
@@ -42,7 +42,7 @@ export default function Auth(props) {
 				});
 		} else {
 			await axios
-				.post('http://localhost:5000/api/usuarios/login', {
+				.post(process.env.REACT_APP_BACKEND_URL + 'usuarios/login', {
 					email: data.email,
 					password: data.password,
 				})
